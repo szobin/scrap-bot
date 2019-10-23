@@ -1,0 +1,6 @@
+<config grabber="serenium" 
+   browser="chrome"
+   display = "0, 1280, 720"
+   driver_path="/usr/local/bin/chromedriver" 
+   browser_path="/usr/bin/google-chrome-stable"  
+/>

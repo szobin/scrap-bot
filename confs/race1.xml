@@ -1,0 +1,48 @@
+<bot>
+   <site name="sports.williamhill.com" url="http://sports.williamhill.com/" 
+         title="Horse races" list="horses" debug="0" >
+
+       <nav name="Select time zone" by="xpath" c="//a[@id='yesBtn']" 
+           action="click" waitfor="//div[@class='lang-bar']"/> 
+
+       <nav name="Select language - en" by="xpath" c="//a[@class='en-gb']" 
+           action="jump" waitfor="//ul/li/a[@id='horse_racing']"/> 
+
+       <nav name="Select race page" by="xpath" c="//ul/li/a[@id='horse_racing']" 
+           action="click" waitfor="//div/p[@class='meeting_leftTitle']"/> 
+
+       <nav name="Select odds format list" by="xpath" c="//select[@id='oddsSelect']" 
+           action="click" /> 
+
+       <nav name="Select odds format" by="xpath" c="//select[@id='oddsSelect']/option[1]" 
+           action="click" /> 
+
+    <base name="US races" by="xpath" c="//div[@id='meetingHdeShw_103']" > 
+    
+       <foreach name="Race towns" by="xpath" c=".//div[@class='meetingContainer']"
+           action="navs">
+
+           <foreach name="Race town/times" by="xpath" c=".//ul/li/label/a" h=".//a/h3"
+              action="jumps" >
+
+       <if by="xpath" c="//table[@id='meetingData_racecard']">
+          <collect>
+              <col by="xpath" c="//tr/td[@class='md_runner']" exfilter="N/R"/>
+              <col by="xpath" c="//table[@id='meetingData_racecard']/tbody/tr[@class='md_row ']/td[7]/a"/>
+          </collect> 
+       </if>
+
+       <if by="xpath" c="//table[@id='meetingData_results']">
+          <collect>
+              <col by="xpath" c="//tr/td[@class='md_runner']" exfilter="N/R"/>
+              <col by="xpath" c="//tr/td[@class='md_column5']/strong"/>
+          </collect> 
+       </if>
+
+           </foreach>
+
+       </foreach>
+    </base>
+
+   </site>
+</bot>

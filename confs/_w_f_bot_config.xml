@@ -1,0 +1,4 @@
+<config grabber="serenium" 
+   browser="firefox" 
+   driver_path="F:\\Temp\\geckodriver.exe" 
+  />

@@ -1,0 +1,4 @@
+<config grabber="serenium" 
+   browser="phantomjs" 
+   driver_path="F:\\Temp\\phantomjs.exe" >
+</config>

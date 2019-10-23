@@ -1,0 +1,38 @@
+<bot>
+   <site name="tabtouch_horses" title="Horse races" list="horses"
+         url="https://www.tabtouch.com.au/racing/races" ttl="120"
+         waitfor="//table[@class='racetable convert-datatable dataTable DTFC_Cloned']"
+         debug="0" >
+
+    <base name="Town table" by="xpath" c="//table[@class='racetable convert-datatable dataTable DTFC_Cloned']" > 
+
+       <foreach name="Race towns" ttl="30"
+           by="xpath" c=".//tbody/tr/td[2]/a" filter="arg.2"
+           action="jumps">
+
+           <foreach name="Race times" by="xpath" 
+              c="//table[@id='races']/tbody/tr[position() mod 2 = 1]/td[5]/a"  
+              hc="//table[@id='races']/tbody/tr[position() mod 2 = 1]/td[2]/a" filter="arg.3"
+              action="jumps">
+
+              <nav name="View type: Select" action="perform"
+                 by="xpath" 
+                 c="//div[@class='faux-select viewmode']/p/a" /> 
+                    
+              <nav name="View type: Fields" action="click"
+                 by="xpath" 
+                 c="//div[@class='faux-select viewmode open']/ul/li[2]" /> 
+
+              <collect>
+                 <col by="xpath" c="//table[@id='client-side-view']/tbody/tr/td[3]/a" />
+                 <col by="xpath" c="//table[@id='client-side-view']/tbody/tr/td[7]/span" />
+              </collect> 
+
+           </foreach>
+
+       </foreach>
+
+    </base>
+
+   </site>
+</bot>

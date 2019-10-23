@@ -1,0 +1,21 @@
+<bot>
+   <site name="sports.coral.co.uk" url="http://sports.coral.co.uk" 
+         title="Horse races" list="horses">
+
+       <nav name="Select race page" by="xpath" c="//div[@class='topic-links-list quick-links-list']/ul/li/a[1]" 
+           action="click" waitfor="//div[@class='races']"/> 
+
+       <nav name="Close cookie modal" by="xpath" c="//div/p/a[@class='btn-cookie']" 
+           action="click" /> 
+
+       <nav name="Select first race town" by="xpath" c="//div[@class='races']/div[@class='race featured-match']/div[1]/a" 
+           action="jump" /> 
+
+       <if by="xpath" c="//div[@class='horse-in-depth-results in-depth-results']">
+          <collect>
+              <col by="xpath" c="//span[@class='horse-name']"/>
+              <col by="xpath" c="//span[@class='odds-fractional']"/>
+          </collect> 
+      </if>
+   </site>
+</bot>

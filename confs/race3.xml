@@ -1,0 +1,27 @@
+<bot>
+   <site name="www.paddypower.com" url="http://www.paddypower.com/" 
+         title="Horse races" list="horses">
+
+       <nav name="Close modal window" action="perform"
+            by="xpath" 
+            c="//div[@class='new-modal-window']" 
+            h="//div[@class='new-modal-window']/img"
+            waitfor="//div[@id='close_button']" /> 
+
+       <nav name="Close cookie warn" action="perform"
+            by="xpath" 
+            c="//div[@id='cookie_box']"
+            h="//div[@id='close_button']" 
+            waitfor="//ul[@id='nav_quicklinks']"  /> 
+
+       <nav name="Select race page" action="jump" 
+           by="xpath" c="//ul[@id='nav_quicklinks']/li[9]/a" 
+           waitfor="//div[@id='next_3_hp']"  /> 
+
+       <collect>
+           <col by="xpath" c="//div[@class='infos']" first_line_only="1" skip_first="1"/>
+           <col by="xpath" c="//div[@class='odd ']/a"/>
+       </collect> 
+
+   </site>
+</bot>

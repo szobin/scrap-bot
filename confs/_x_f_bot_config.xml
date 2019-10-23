@@ -1,0 +1,6 @@
+<config grabber="serenium" 
+   browser="firefox"
+   display = "0, 1280, 720"
+   driver_path="/usr/local/bin/geckodriver" 
+   browser_path="/usr/bin/firefox"  
+ />

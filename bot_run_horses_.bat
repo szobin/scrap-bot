@@ -1,0 +1,1 @@
+python bot.py tabtouch_horses.xml Bendigo 2

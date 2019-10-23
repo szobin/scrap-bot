@@ -1,0 +1,28 @@
+<bot>
+   <site name="mobile.bet365.com" url="https://mobile.bet365.com" 
+         title="Horse races" list="horses">
+
+       <nav name="Wait main page loading" action="wait" 
+           waitfor="//nav/div[@class='hm-HeaderLink hm-HeaderLink_LinkHighlightable hm-HeaderLinkAtoz_SidebarLauncher ']"
+           wait_to="15" expect_kind="visibility" /> 
+
+       <delay t="5"/> 
+
+       <nav name="Open main menu" action="perform"
+            by="xpath" 
+            c="//nav[@class='hm-HeaderPod_Nav ']" 
+            h="//nav/div[@class='hm-HeaderLink hm-HeaderLink_LinkHighlightable hm-HeaderLinkAtoz_SidebarLauncher ']/div"
+            waitfor="//section[@class='sb-SportsGroup sb-SidebarGroup_Highlighted ']" /> 
+       
+       <nav name="Select race page" action="click" 
+           by="xpath" c="//div[@class='sb-SportsItem '][15]/span" 
+           waitfor="//div[@class='racingSilks']"/> 
+
+
+       <collect>
+           <col by="xpath" c="//span[@class='participant']"/>
+           <col by="xpath" c="//div[@class='oddsColumn']"/>
+       </collect> 
+
+   </site>
+</bot>

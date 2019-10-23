@@ -1,0 +1,4 @@
+<config grabber="serenium" 
+   browser="chrome" 
+   driver_path="F:\\Temp\\chromedriver.exe" 
+  />

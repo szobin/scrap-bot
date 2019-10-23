@@ -1,0 +1,5 @@
+<config grabber="serenium" 
+   browser="opera" 
+   driver_path="F:\\Temp\\operadriver.exe" 
+   browser_path="C:\\Program Files (x86)\\Opera\\47.0.2631.55\\opera.exe"  
+   />
